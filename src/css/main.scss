@@ -1,6 +1,7 @@
 @import "fonts";
 @import "palette";
 @import "mq";
+@import "grid-system";
 @import "general";
 @import "share";
 
@@ -343,25 +344,28 @@ max-width: 780px;
     position: relative;
     vertical-align: top;
     display: inline-block;
-    padding: 10px 0 40px 0;
     cursor: pointer;
     background: #fff;
     overflow: hidden;
-     &.gv-quote-third {
-     @include mq(mobileLandscape){
-    width:50%;
-    }
-     @include mq(desktop){
-    width:33.333333333%;
+    margin-top: gs-height(1);
+    
+     &.gv-quote-block-standard {
+         
+    @include mq(desktop){
+    width:gs-span(6);
+    margin-left: gs-span(1);
+    
     }
     
     }
-    &.gv-quote-half {
-    @include mq(desktop){
-    width:calc(50% - 70px);
-    float: right;
+     &.wide {
+    width: 100%;
+     @include mq(desktop){
+          width: gs-span(3);
     }
+    
     }
+   
     &.gv-quote-wide {
     width:100%;
     .gv-quote-text {

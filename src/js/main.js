@@ -47,10 +47,11 @@ function buildView( data ) {
     
    var i, html = "";
    
-   var quoteStyles = {}, quoteStyle, quoteImage;
-   quoteStyles["3"] = "gv-quote-third";
-   quoteStyles["2"] = "gv-quote-half";
-   quoteStyles["1"] = "gv-quote-wide";
+   var blockStyles = {}, blockStyle, blockImage, quoteSource;
+   blockStyles["wide"] = "gv-quote-block-wide gv-large-text";
+   blockStyles["wide highlighted"] = "gv-quote-block-wide-highlighted gv-large-text";
+   blockStyles["standard"] = "gv-quote-block-standard";
+   blockStyles["pullquote"] = "gv-quote-block-pullquote";
    
 	
 	var quoteTemplate = _.template(quoteBlockHTML);
@@ -58,27 +59,29 @@ function buildView( data ) {
 	
 	for ( i = 0; i < dataset.length; i++ ) {
         
-        if (dataset[i].displayStyle != undefined && dataset[i].displayStyle != "" ) {
-            quoteStyle =   quoteStyles["WIDE"];
+        if (dataset[i]["Display type"] == undefined || dataset[i]["Display type"] == "" ) {
+            blockStyle = blockStyles["standard"];
         } else {
-             quoteStyle = quoteStyles[dataset[i]["Display type"]];
+             blockStyle = blockStyles[dataset[i]["Display type"]];
         }
         
          if (dataset[i]["Quote image"] != undefined && dataset[i]["Quote image"] != "" ) {
-            quoteImage =  '<div class="gv-quote-image-holder"></div>';
+            blockImage =  '<div class="gv-quote-image-holder"></div>';
         } else {
-             quoteImage =  '';
+             blockImage =  '';
         }
+        
+        quoteSource = "<strong>" + data[i]["Quote source"] + "</strong>, " + data[i]["Quote source info"];
 			
-			html += quoteTemplate({ quoteId: i,
-                                    quoteStyle: quoteStyle,
-                                    quoteImage: quoteImage,
-									quote: data[i].Fullquote,
-                                    pullquote: data[i].Pullquote,
+			html += quoteTemplate({ blockIndex: i,
+                                    blockStyle: blockStyle,
+                                    blockImage: blockImage,
+									mainText: data[i]["Main text"],
+                                    initialText: data[i]["Initial text"],
                                     source: data[i]["Quote source"],
-                                    title: data[i]["Quote info"],
-                                    constituency: "Title here",
-                                    info: "Info text here info text here"
+                                    sourceInfo: data[i]["Quote source info"],
+                                    blockHeader: "",
+                                    blockFooter: ""
 									 });
 	
 	}
