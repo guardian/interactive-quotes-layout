@@ -6,17 +6,7 @@
 @import "share";
 
 
-$con:    #005789;
-$grn:    #33A22B;
-$lab:    #E31F26;
-$ldem:   #FFB900;
-$others: #B3B3B4;
-$snp:    #FCDD03;
-$ukip:   #7D0069;
-$dup:    $others;
-$pc:     #868686;
-
-
+$maincolour: #4bc6df;
 
 // Remove <figure> margin
 .interactive {
@@ -26,14 +16,12 @@ $pc:     #868686;
   display: block;
   height: 0;
   width: 0;
-  
       @include mq(mobileLandscape){
            display: none;;
-        }
-  
+      } 
    }
 
-select:focus { outline: none; }
+select:focus, button:focus { outline: none; }
 
 a {
   color: #005689;
@@ -87,15 +75,15 @@ time, mark, audio, video {
 #gv-main-content-wrapper {
     
     width: 100%;
-    overflow: hidden;
+    // overflow: hidden;
 
 #gv-main-content {
     
-    width:calc(100% + 20px);
+    //width:calc(100% + 20px);
     
 }
 } 
-} 
+} // end interactive-container
 
 .gv-text p {
     font-family: "Guardian Egyptian Web";
@@ -111,30 +99,6 @@ time, mark, audio, video {
     background: #ffffff none repeat scroll 0% 0%;
     margin: 0px auto;
     padding-top: 12px;
-    
-    .con {
-        background-color: $con!important;
-    }
-    
-     .lab {
-        background-color: $lab!important;
-    }
-    
-    .ldem {
-        background-color: $ldem!important;
-    }
-    
-    .snp {
-        background-color: $snp!important;
-    }
-    
-    .ukip {
-        background-color: $ukip!important;
-    }
-    
-    .pc {
-        background-color: $pc!important;
-    }
 
 }
 
@@ -240,7 +204,7 @@ color: #767676;
     font-size: 34px;
     line-height: 38px;
     font-weight: 200;
-    color: #4bc6df;
+    color: $maincolour;
     max-width: 780px;
     strong {
         font-weight: 800; 
@@ -299,12 +263,35 @@ max-width: 780px;
       
 }
 
+.interactive-container .gv-quote-text {
+   padding-bottom: 20px; 
+}
+
+.interactive-container .gv-large-text .gv-quote-text {
+    font-family: "Guardian Egyptian Web";
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: 200;
+    color: #4bc6df;
+    
+    @include mq(mobileLandscape){
+        
+    }
+    
+    span.qa-coloured-text {
+        color: $maincolour;
+        font-weight: 400;
+    }
+      
+}
+
 .interactive-container h5.gv-text { 
-    color: #333;
+    color: #767676;
     font-weight: 400;
     padding-bottom: 10px;
     padding-top: 4px;
     line-height: 1.2em;
+    padding-top: 20px;
 }
 
 .interactive-container h7.gv-text { 
@@ -315,29 +302,17 @@ max-width: 780px;
     margin-bottom: -5px;
 }
 
- .interactive-container .gv-quote-block.gv-quote-half .gv-quote-image-holder {
-     width: 140px;
-     height: 140px;
-     background: #dcdcdc;
-     margin-right: 30px;
-      display: none;
-     
-      @include mq(tablet){
-         display: block;
-      }
- }
- 
-  .interactive-container .gv-quote-block.gv-quote-third .gv-quote-image-holder {
-     width: 100px;
-     height: 100px;
-     background: #dcdcdc;
-     margin-right: 30px;
-     display: none;
-     
-      @include mq(desktop){
-         display: block;
-      }
- }  
+.interactive-container .gv-expand-quote-button { 
+    cursor: pointer;
+    border: none;
+    background: #dcdcdc;
+    color: #fff;
+    font-family: Guardian Text Sans Web,Arial,sans-serif;
+    font-size: 16px;
+    padding: 4px 12px 4px 12px;
+    border-radius: 12px;
+    margin: 12px 0 12px 0;
+}
 
 
 .interactive-container .gv-quote-block {
@@ -346,45 +321,97 @@ max-width: 780px;
     display: inline-block;
     cursor: pointer;
     background: #fff;
-    overflow: hidden;
+    // overflow: hidden;
     margin-top: gs-height(1);
     
      &.gv-quote-block-standard {
          
     @include mq(desktop){
+    width:gs-span(5);
+    margin-left: gs-span(1) + $gs-gutter;
+    }
+    
+     @include mq(leftCol){
     width:gs-span(6);
-    margin-left: gs-span(1);
-    
+    margin-left: gs-span(1) + $gs-gutter;
     }
     
+    &.gv-block-indent {
+     @include mq(wide){
+    margin-left: gs-span(2) + $gs-gutter;
     }
-     &.wide {
-    width: 100%;
-     @include mq(desktop){
-          width: gs-span(3);
     }
-    
-    }
+     }
    
-    &.gv-quote-wide {
+    &.gv-quote-block-wide {
     width:100%;
-    .gv-quote-text {
-         @include mq(desktop){
-        padding-left: 140px;
-         }
+    
+    @include mq(desktop){
+    width:gs-span(11);
+    padding-left: gs-span(1) + $gs-gutter;
     }
     
+     @include mq(wide){
+    width:gs-span(13);
+    padding-left: gs-span(2) + $gs-gutter;
+    }
+    
+    
+   
+    
+    }
+    
+     &.gv-quote-block-wide-highlighted {
+    width:100%;
+    padding-top: 24px;
+   padding-bottom: 24px;
+    background-color: $maincolour;
+    
+     .gv-quote-block-inner {
+        position: relative;
+       padding-left: gs-span(2) + $gs-gutter;
+       border-top: none;
+       padding-top: 20px;
+       
+    }
+    
+      .gv-gradient-fade {
+        display: none!important;
+    }
+    
+    .gv-expand-quote-button {
+        display: none;
+    }
+    
+    
+    &.gv-large-text .gv-quote-text {
+        color: #fff;
+        overflow: hidden;    
     }
     
     .gv-quote-mark {
-        fill: #dcdcdc;
+        fill: #fff;
+         width: 160px;
+         height: 76px;
+         position: absolute;
+         left: 0;
+         top: 0;
+    }
+    
+    
+     }
+    
+    .gv-quote-mark {
+        fill: #bcbcbc;
         width: 80px;
         height: 38px;
+        margin-top: 12px;
     }
     
 &.gv-quote-wide .gv-quote-mark {
       width: 160px;
       height: 76px;
+     
     }
     
  .gv-quote-image-holder {
@@ -400,8 +427,8 @@ max-width: 780px;
   
     
      .gv-quote-block-inner {
-         margin-right: 20px;
-         border-top: 1px dotted #dcdcdc;
+        //  margin-right: 20px;
+         border-top: 1px solid #efefef;
      }
     
     .gv-left-col {
@@ -453,8 +480,9 @@ max-width: 780px;
     }
     
     .gv-fullquote {
-        height: 0;
-        overflow: hidden;
+        // height: 0;
+        // overflow: hidden;
+         padding-top: 10px;
     }
     
     strong {
@@ -465,24 +493,77 @@ max-width: 780px;
         // background: #edf9fc;
     }
     
-    &.gv-expanded {
-    .gv-fullquote {
-         height: auto;
-         padding-top: 10px;
+    .gv-p-more {
+        display: none;
     }
-    .gv-more {
-         display: none;
-    }
-    .gv-info-text {
+    
+    .gv-p-less {
         display: block;
     }
-    &:hover {
-        background: #fff;
+    
+    &.gv-collapsed {
+    .gv-fullquote {
+         height: auto;
+        
     }
+    
+    
+    .gv-gradient-fade {
+        display: block;
+    }
+    
+     .gv-p-more {
+        display: block;
+    }
+    
+    .gv-p-less {
+        display: none;
+    }
+    
     
 }
 
+
+
 }
+
+.gv-fill-margins {
+    margin-left: 0 - $gs-gutter!important;
+    padding-left: $gs-gutter!important;
+    padding-right: $gs-gutter!important;
+    width: 100%!important;
+    // padding-left: 0 - $gs-gutter!important;
+}
+
+.gv-gradient-fade {
+    display: none;
+    width: 100%;
+    height: 0;
+    position: relative;
+    .gv-fade-inner {
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    top: -100px;
+    background: -moz-linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(100%, rgba(255,255,255,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* ie10+ */
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#FFFFFF',GradientType=0 ); /* ie6-9 */
+    }
+}
+
+
+// .gv-fill-margins .gv-quote-block-inner {
+//     margin-left: 0 - gs-span(1) - ($gs-gutter*2);
+//     padding-left: gs-span(1) + ($gs-gutter*2);
+//     margin-right: 0 - ($gs-gutter);
+//     @include mq(desktop){
+    
+//     }
+// }
 
 
 // .interactive-container .gv-quote-block:before {
@@ -493,3 +574,65 @@ max-width: 780px;
 //     height: 50px;
 //     background: #000;
 // }
+
+
+.gv-collapsed {
+/* Begin required CSS. */
+.line-clamp
+{
+	display            : block;
+	display            : -webkit-box;
+	-webkit-box-orient : vertical;
+	position           : relative;
+
+	line-height        : 1.2;
+	overflow           : hidden;
+	text-overflow      : ellipsis;
+	padding            : 0 !important;
+}
+.line-clamp:after
+{
+	content    : '...';
+	text-align : right;
+	bottom     : 0;
+	right      : 0;
+	width      : 25%;
+	display    : block;
+	position   : absolute;
+	height     : calc(1em * 1.2);
+	background : linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 75%);
+}
+@supports (-webkit-line-clamp: 1)
+{
+	.line-clamp:after
+	{
+		display : none !important;
+	}
+}
+.line-clamp-1
+{
+	-webkit-line-clamp : 1;
+	height             : calc(1em * 1.2 * 1);
+}
+.line-clamp-2
+{
+	-webkit-line-clamp : 2;
+	height             : calc(1em * 1.2 * 2);
+}
+.line-clamp-3
+{
+	-webkit-line-clamp : 3;
+	height             : calc(1em * 1.2 * 3);
+}
+.line-clamp-4
+{
+	-webkit-line-clamp : 4;
+	height             : calc(1em * 1.2 * 4);
+}
+.line-clamp-5
+{
+	-webkit-line-clamp : 5;
+	height             : calc(1em * 1.2 * 5);
+}
+/* End required CSS. */
+}

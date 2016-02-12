@@ -3,6 +3,7 @@ import jquery from 'jquery'
 import _ from 'underscore'
 import mainHTML from './text/main.html!text'
 import quoteBlockHTML from './text/quote-block.html!text'
+import textBlockHTML from './text/text-block.html!text'
 import share from './lib/share'
 
 var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
@@ -40,6 +41,7 @@ function doStuff (data) {
     dataset = data.sheets.Sheet1;
     console.log(dataset);
     buildView( dataset );
+    addListeners();
     
 }
 
@@ -47,14 +49,15 @@ function buildView( data ) {
     
    var i, html = "";
    
-   var blockStyles = {}, blockStyle, blockImage, quoteSource;
+   var blockStyles = {}, blockStyle, blockImage, quoteSource, indentBool = true;
    blockStyles["wide"] = "gv-quote-block-wide gv-large-text";
-   blockStyles["wide highlighted"] = "gv-quote-block-wide-highlighted gv-large-text";
+   blockStyles["wide-highlighted"] = "gv-quote-block-wide-highlighted gv-large-text gv-fill-margins";
    blockStyles["standard"] = "gv-quote-block-standard";
    blockStyles["pullquote"] = "gv-quote-block-pullquote";
    
 	
 	var quoteTemplate = _.template(quoteBlockHTML);
+    var textTemplate = _.template(textBlockHTML);
 	
 	
 	for ( i = 0; i < dataset.length; i++ ) {
@@ -63,6 +66,12 @@ function buildView( data ) {
             blockStyle = blockStyles["standard"];
         } else {
              blockStyle = blockStyles[dataset[i]["Display type"]];
+        }
+        
+        if (indentBool && (dataset[i]["Display type"] == "standard" || dataset[i]["Display type"] == "")) {
+            blockStyle +=" gv-block-indent";
+        } else {
+            indentBool = false; // reset indent for wide and after!!!!
         }
         
          if (dataset[i]["Quote image"] != undefined && dataset[i]["Quote image"] != "" ) {
@@ -78,15 +87,33 @@ function buildView( data ) {
                                     blockImage: blockImage,
 									mainText: data[i]["Main text"],
                                     initialText: data[i]["Initial text"],
-                                    source: data[i]["Quote source"],
-                                    sourceInfo: data[i]["Quote source info"],
+                                    source: quoteSource,
                                     blockHeader: "",
                                     blockFooter: ""
 									 });
+                                     
+          indentBool = !indentBool;
+          
+                                        
 	
 	}
 	
 	var $qa = $("#gv-main-content");
 	
 	$qa.html(html);
+}
+
+function addListeners() {
+    $(".gv-expand-quote-button").click( function (e) {
+       
+        //alert ("blk");
+        //$(blk).toggleClass("gv-expanded");
+           var blk = $(e.target).closest(".gv-quote-block");
+        
+
+        if ( blk.length > 0) { // its a block
+
+          $(blk).toggleClass("gv-collapsed");
+        }
+    });
 }
