@@ -85,224 +85,42 @@ time, mark, audio, video {
 } 
 } // end interactive-container
 
-.gv-text p {
-    font-family: "Guardian Egyptian Web";
-    font-size: 24px;
-    line-height: 31px;
-    font-weight: 200;
-    color: #767676;
-}
 
+// ********** MAIN BREAKPOINT CSS ***************
 
+.interactive-container {
+// mq mobile
 
-.interactive #gv-content {
-    background: #ffffff none repeat scroll 0% 0%;
-    margin: 0px auto;
-    padding-top: 12px;
-
-}
-
-.interactive-container #gv-header {
-   padding-bottom: 55px;
-   
-    #gv-filter-block {
-  position: absolute;
-  right: 0;
-  bottom: 12px;
-  color: #dcdcdc;
-  font-family: Guardian Text Sans Web,Arial,sans-serif;
-}
-
-.gv-styled-select {
-  float: right;
-   width: 240px;
-   height: 34px;
-   overflow: hidden;
-   background: url("/imgs/dropdown.gif") no-repeat 208px #fff;
-   border: 1px solid #dcdcdc;
-   border-radius: 17px;
-}
-
-.gv-styled-select:hover {
-   background: url("/imgs/dropdown-white.png") no-repeat 208px #dcdcdc;
-}
-
-.gv-styled-select:hover #gv-filter {
-  color: #fff;
-}
-
-#gv-filter {
-   background: transparent;
-   width: 268px;
-   padding: 5px;
-   font-size: 16px;
-   line-height: 1;
-   border: 0;
-   border-radius: 0;
-   height: 34px;
-   -webkit-appearance: none;
-   line-height: 1.3em;
-   color: #bdbdbd;
-   font-weight: 600;
-   cursor: pointer;
-}
-
-  #gv-filter option {
-   padding: 10px;
-   border-bottom: 1px solid #767676;
-   font-weight: 400;
-   color: #767676;
-   background: #fff;
-   }
-
-   #gv-filter option.separator {
-   border-bottom: 4px solid #767676;
-   }
-}
-
-.interactive-container #gv-share-container {
-color: #767676;
- font-family: Guardian Text Sans Web,Arial,sans-serif;
- 
- p {
-     display: inline-block;
-     padding-right: 10px;
- }
-}
-
-.interactive-container .share-button{
-        width:24px;
-        height:24px;
-        border-radius:40px;
-        border:none;
-        outline: none;
-        background: #333;
-        background-position: center;
-        background-repeat: no-repeat;
-        cursor:pointer;
-        background-size:24px;
-        margin-right: 2px;
-     
-        display:inline-block;
-        margin-top:12px;
-        &.share-twitter{
-            background-image: url(/imgs/twitter.svg);
-        }
-        &.share-facebook{
-            background-image: url(/imgs/facebook.svg);
-        }
-        &.share-email{
-            background-image: url(/imgs/mail.svg);
-        }
-        &:hover{
-            background-color:#555;
-        }
-    }
-
-.interactive-container h1 {
-    font-family: "Guardian Egyptian Web";
-    font-size: 34px;
-    line-height: 38px;
-    font-weight: 200;
-    color: $maincolour;
-    max-width: 780px;
-    strong {
-        font-weight: 800; 
-    }
-    
-    @include mq(mobileLandscape){
-          font-size: 76px;
-    line-height: 76px;
-    }
-    
-  
-}
-
-.interactive-container h1:after {
-    display: block;
-    max-width: 780px;
-    height: 1px;
-    content:"";
-    border-top: 1px solid #333;
-    margin: 5px 0 10px 0;
-     @include mq(mobileLandscape){
-         margin: 15px 0 10px 0;
-    }
-}
-
-.interactive-container h2 {
-   font-family: "Guardian Egyptian Web";
-font-size: 21px;
-line-height: 24px;
-font-weight: 200;
-color: #222;
-max-width: 780px;
-
- @include mq(mobileLandscape){
-          font-size: 27px;
-    line-height: 34px;
-    }
-}
-
-.interactive-container .gv-text {
+.gv-text {
     font-family: "Guardian Egyptian Web";
     font-size: 18px;
     line-height: 24px;
     font-weight: 200;
-    color: #767676;
-    
-    @include mq(mobileLandscape){
-        font-size: 24px;
-        line-height: 31px;
-    }
-    
-    span.qa-coloured-text {
-        color: #4bc6df;
-        font-weight: 400;
-    }
-      
+    color: #767676;     
 }
 
-.interactive-container .gv-quote-text {
+.gv-quote-text {
    padding-bottom: 20px; 
 }
 
-.interactive-container .gv-large-text .gv-quote-text {
+.gv-large-text .gv-quote-text {
     font-family: "Guardian Egyptian Web";
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 26px;
+    line-height: 30px;
     font-weight: 200;
     color: #4bc6df;
-    
-    @include mq(mobileLandscape){
-        
-    }
-    
-    span.qa-coloured-text {
-        color: $maincolour;
-        font-weight: 400;
-    }
-      
 }
 
-.interactive-container h5.gv-text { 
+.gv-source-text { 
     color: #767676;
     font-weight: 400;
     padding-bottom: 10px;
     padding-top: 4px;
     line-height: 1.2em;
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
-.interactive-container h7.gv-text { 
-    display: block;
-    font-weight: 300;
-    padding-bottom: 0;
-    padding-top: 5px;
-    margin-bottom: -5px;
-}
-
-.interactive-container .gv-expand-quote-button { 
+.gv-expand-quote-button { 
     cursor: pointer;
     border: none;
     background: #dcdcdc;
@@ -314,6 +132,44 @@ max-width: 780px;
     margin: 12px 0 12px 0;
 }
 
+@include mq(tablet){
+     
+     .gv-text {
+     font-size: 24px;
+     line-height: 31px;  
+    }
+    
+    .gv-large-text .gv-quote-text {
+     font-size: 36px;
+     line-height: 40px;
+}
+        
+}   
+    
+@include mq(desktop){
+   
+}
+    
+@include mq(leftCol){
+    
+}
+
+@include mq(wide){
+    
+}
+
+}
+
+
+
+
+
+
+
+
+// QUOTE BLOCK STYLING
+
+// BASE QUOTE BLOCK
 
 .interactive-container .gv-quote-block {
     position: relative;
@@ -323,6 +179,46 @@ max-width: 780px;
     background: #fff;
     // overflow: hidden;
     margin-top: gs-height(1);
+    
+     .gv-quote-group {
+        width: 100%;
+    }
+    
+       .gv-quote-image-holder {
+     background: #dcdcdc;
+     overflow: hidden;
+ }
+ 
+  .gv-quote-image-holder img {
+     width: 100%;
+ }
+ 
+  
+    
+     .gv-quote-block-inner {
+        //  margin-right: 20px;
+         border-top: 1px solid #efefef;
+     }
+    
+    .gv-quote-mark {
+        fill: #bcbcbc;
+        width: 80px;
+        height: 38px;
+        margin-top: 12px;
+    }
+    
+    &.gv-quote-block-pullquote {
+         border-top: 1px solid #4bc6df;
+         .gv-quote-mark {
+        fill: #4bc6df;
+        
+    }
+        .gv-expand-quote-button, .gv-fullquote, .gv-gradient-fade {
+        display: none!important;
+    }
+    }
+    
+    // STANDARD QUOTE BLOCK
     
      &.gv-quote-block-standard {
          
@@ -341,25 +237,81 @@ max-width: 780px;
     margin-left: gs-span(2) + $gs-gutter;
     }
     }
+    
      }
+     
+    // WIDE QUOTE BLOCK
    
     &.gv-quote-block-wide {
     width:100%;
     
-    @include mq(desktop){
+     @include mq(desktop){
     width:gs-span(11);
     padding-left: gs-span(1) + $gs-gutter;
+    
+        .gv-quote-group {
+        width: gs-span(10);
+    }
+    
+      &.gv-with-image {
+         .gv-quote-group {
+        width: gs-span(8);
+    }
+      }
+    
+    }
+    
+    @include mq(leftCol){
+    width:gs-span(13);
+    padding-left: gs-span(1) + $gs-gutter;
+    
+        .gv-quote-group {
+        width: gs-span(13);
+    }
+    
+     &.gv-with-image {
+         .gv-quote-group {
+        width: gs-span(10);
+    }
+    }
+    
     }
     
      @include mq(wide){
     width:gs-span(13);
     padding-left: gs-span(2) + $gs-gutter;
+    
+     .gv-quote-group {
+        width: gs-span(13);
+    }
+    
+    &.gv-with-image {
+         .gv-quote-group {
+        width: gs-span(10);
+    }
+    }
+    }
+    
+     .gv-quote-image-holder {
+        width: 160px;
+     height: 160px;
+     border-radius: 50%;
+     float: right;
+     margin-left: 20px;
+     margin-bottom: 20px;
+     margin-top: 20px;
+       @include mq(tablet){
+         width: 220px;
+     height: 220px;
+    }
     }
     
     
    
     
     }
+    
+    // WIDE HIGHLIGHTED QUOTE BLOCK
     
      &.gv-quote-block-wide-highlighted {
     width:100%;
@@ -367,11 +319,34 @@ max-width: 780px;
    padding-bottom: 24px;
     background-color: $maincolour;
     
-     .gv-quote-block-inner {
-        position: relative;
-       padding-left: gs-span(2) + $gs-gutter;
+    &.gv-with-image {
+        .gv-quote-group {
+        padding-top: 100px;
+        @include mq(mobileLandscape){
+        
+        padding-top: 0;
+       
+    }
+    }
+     
+    }
+    
+      .gv-quote-block-inner {
+       position: relative;
+       padding-left: 0;
+       padding-top: 80px;
        border-top: none;
-       padding-top: 20px;
+       
+       
+       @include mq(mobileLandscape){
+        padding-left: gs-span(1) + $gs-gutter;
+        padding-top: 20px;
+    }
+    
+     @include mq(desktop){
+        padding-left: gs-span(2) + $gs-gutter;
+        padding-top: 20px;
+    }
        
     }
     
@@ -391,98 +366,91 @@ max-width: 780px;
     
     .gv-quote-mark {
         fill: #fff;
-         width: 160px;
-         height: 76px;
+          width: 80px;
+        height: 38px;
          position: absolute;
          left: 0;
-         top: 0;
+         top: 10px;
+         
+           @include mq(desktop){
+       width: 160px;
+         height: 76px;
+    }
     }
     
-    
-     }
-    
-    .gv-quote-mark {
-        fill: #bcbcbc;
-        width: 80px;
-        height: 38px;
-        margin-top: 12px;
-    }
-    
-&.gv-quote-wide .gv-quote-mark {
-      width: 160px;
-      height: 76px;
-     
-    }
-    
- .gv-quote-image-holder {
-     width: 220px;
-     height: 220px;
-     background: #dcdcdc;
+    .gv-quote-image-holder {
+       position: absolute;
+        width: 160px;
+     height: 160px;
+     position: absolute;
      border-radius: 50%;
+     right: 0;
+     top: 0;
+    
+       @include mq(mobileLandscape){
      float: right;
      margin-left: 20px;
      margin-bottom: 20px;
- }
- 
-  
+     position: static;
+     width: 220px;
+     height: 220px;
+    }
+    }
     
-     .gv-quote-block-inner {
-        //  margin-right: 20px;
-         border-top: 1px solid #efefef;
+     @include mq(desktop){
+    width:gs-span(9);
+    padding-left: gs-span(1) + $gs-gutter;
+    
+        .gv-quote-group {
+        width: gs-span(9);
+    }
+     &.gv-with-image {
+         .gv-quote-group {
+        width: gs-span(8);
+    }
+    }
+    }
+    
+     @include mq(leftCol){
+    width:gs-span(11);
+    padding-left: gs-span(1) + $gs-gutter;
+    
+        .gv-quote-group {
+        width: gs-span(11);
+    }
+     &.gv-with-image {
+         .gv-quote-group {
+        width: gs-span(11);
+    }
+    }
+    }
+    
+    @include mq(wide){
+    width:gs-span(11);
+    padding-left: gs-span(1) + $gs-gutter;
+    
+        .gv-quote-group {
+        width: gs-span(12);
+    }
+    }
+    
+    
+
+    
      }
+     
+   
     
-    .gv-left-col {
-        
-        display: none;
-        
-         @include mq(mobileLandscape){
-        // display: block;
-        width: 15%;
-        float: left;
-        
-         }
-        
-    }
+
     
-     .gv-right-col {
-          
-          @include mq(mobileLandscape){
-        // width: 82%;
-        float: right;
-        overflow: hidden;
-          }
-       
-    }
+
     
     
-    
-    .qa-locator-map {
-        width: 100%;
-    }
-    
-    .gv-info-text {
-        font-family: Guardian Text Sans Web,Arial,sans-serif;
-        font-size: 16px;
-         color: #bdbdbd;
-          padding-top: 10px;
-         padding-bottom: 20px;
-         line-height: 1.3em;
-         font-weight: 400;
-         
-          @include mq(mobileLandscape){
-        font-size: 18px;
-    }
-         
-         strong {
-             font-weight: 800;
-             color: #bdbdbd;
-         }
-    }
     
     .gv-fullquote {
         // height: 0;
         // overflow: hidden;
-         padding-top: 10px;
+        // padding-top: 10px;
     }
     
     strong {
@@ -635,4 +603,118 @@ max-width: 780px;
 	height             : calc(1em * 1.2 * 5);
 }
 /* End required CSS. */
+}
+
+@include mq(leftCol){
+
+
+.gv-1-col-width {
+    width: gs-span(1)!important; 
+}
+
+.gv-2-col-width {
+    width: gs-span(2)!important; 
+}
+
+.gv-3-col-width {
+    width: gs-span(3)!important; 
+}
+
+.gv-4-col-width {
+    width: gs-span(4)!important; 
+}
+
+.gv-5-col-width {
+    width: gs-span(5)!important; 
+}
+
+.gv-6-col-width {
+    width: gs-span(6)!important; 
+}
+
+.gv-7-col-width {
+    width: gs-span(7)!important; 
+}
+
+.gv-8-col-width {
+    width: gs-span(8)!important; 
+}
+
+.gv-9-col-width {
+    width: gs-span(9)!important; 
+}
+
+.gv-10-col-width {
+    width: gs-span(10)!important; 
+}
+
+}
+
+@include mq(tablet){
+
+.gv-0-col-indent {
+    margin-left: $gs-gutter!important;
+}
+
+.gv-1-col-indent {
+    margin-left: gs-span(1) + $gs-gutter!important;
+}
+
+.gv-2-col-indent {
+    margin-left: gs-span(2) + $gs-gutter!important;
+}
+
+.gv-3-col-indent {
+    margin-left: gs-span(3) + $gs-gutter!important;
+}
+
+.gv-4-col-indent {
+    margin-left: gs-span(4) + $gs-gutter!important;
+}
+
+.gv-5-col-indent {
+    margin-left: gs-span(5) + $gs-gutter!important;
+}
+
+.gv-6-col-indent {
+    margin-left: gs-span(6) + $gs-gutter!important;
+}
+
+.gv-7-col-indent {
+    margin-left: gs-span(7) + $gs-gutter!important;
+}
+
+.gv-8-col-indent {
+    margin-left: gs-span(8) + $gs-gutter!important;
+}
+
+.gv-9-col-indent {
+    margin-left: gs-span(9) + $gs-gutter!important;
+}
+
+.gv-10-col-indent {
+    margin-left: gs-span(10) + $gs-gutter!important;
+}
+
+
+
+}
+
+.gv-quote-block-image {
+     .gv-expand-quote-button, .gv-source-text, .gv-pullquote, .gv-fullquote, .gv-gradient-fade, .gv-quote-mark {
+        display: none!important;
+    }
+    .gv-quote-block-inner {
+        border: none!important;
+    }
+    
+    width: 100%;
+    
+    .gv-quote-image-holder {
+    width: 100%;
+    @include mq(desktop){
+        
+    }
+    }
+    
 }

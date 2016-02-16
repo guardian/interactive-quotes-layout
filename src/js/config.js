@@ -13,6 +13,7 @@ System.config({
   },
 
   map: {
+    "blazy": "npm:blazy@1.5.2",
     "guardian/iframe-messenger": "github:guardian/iframe-messenger@master",
     "jquery": "npm:jquery@2.2.0",
     "json": "github:systemjs/plugin-json@0.1.0",
