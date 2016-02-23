@@ -94,7 +94,7 @@ time, mark, audio, video {
 .gv-text {
     font-family: "Guardian Egyptian Web";
     font-size: 18px;
-    line-height: 24px;
+    line-height: 1.3em;
     font-weight: 200;
     color: #767676;     
 }
@@ -106,7 +106,7 @@ time, mark, audio, video {
 .gv-large-text .gv-quote-text {
     font-family: "Guardian Egyptian Web";
     font-size: 26px;
-    line-height: 30px;
+    line-height: 1.2em;
     font-weight: 200;
     color: #4bc6df;
 }
@@ -141,7 +141,7 @@ time, mark, audio, video {
     
     .gv-large-text .gv-quote-text {
      font-size: 36px;
-     line-height: 40px;
+     line-height: 1.2em;
 }
         
 }   
@@ -197,7 +197,7 @@ time, mark, audio, video {
     
      .gv-quote-block-inner {
         //  margin-right: 20px;
-         border-top: 1px solid #efefef;
+         border-top: 1px solid #dcdcdc;
      }
     
     .gv-quote-mark {
@@ -208,7 +208,9 @@ time, mark, audio, video {
     }
     
     &.gv-quote-block-pullquote {
+        .gv-quote-block-inner {
          border-top: 1px solid #4bc6df;
+        }
          .gv-quote-mark {
         fill: #4bc6df;
         
@@ -543,9 +545,55 @@ time, mark, audio, video {
 //     background: #000;
 // }
 
-
 .gv-collapsed {
+    /* styles for '...' */ 
+.line-clamp {
+  /* hide text if it more than N lines  */
+  overflow: hidden;
+  /* for set '...' in absolute position */
+  position: relative; 
+  /* use this value to count block height */
+  line-height: 1.2em;
+  /* max-height = line-height (1.2) * lines max number (3) */
+  max-height: 3.6em; 
+  /* fix problem when last visible word doesn't adjoin right side  */
+  text-align: justify;  
+  /* place for '...' */
+//   margin-right: -1em;
+//   padding-right: 1em;
+}
+/* create the ... */
+.line-clamp:before {
+  /* points in the end */
+  /*content: '...';*/
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of block */
+  right: 0;
+  bottom: 0;
+}
+/* hide ... if we have text, which is less than or equal to max lines */
+.line-clamp:after {
+  /* points in the end */
+  content: '';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of text */
+  right: 0;
+  /* set width and height */
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  /* bg color = bg color under block */
+  background: white;
+}
+}
+
+
+.gv-collapsed2 {
 /* Begin required CSS. */
+
+
 .line-clamp
 {
 	display            : block;
